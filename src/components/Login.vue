@@ -2,25 +2,6 @@
   <v-app id="inspire">
     <v-content>
       <v-container fluid fill-height>
-                  <v-snackbar
-      v-model="snackbar"
-      :bottom="y === 'bottom'"
-      :left="x === 'left'"
-      :multi-line="mode === 'multi-line'"
-      :right="x === 'right'"
-      :timeout="timeout"
-      :top="y === 'top'"
-      :vertical="mode === 'vertical'"
-    >
-      {{ text }}
-      <v-btn
-        color="pink"
-        flat
-        @click="snackbar = false"
-      >
-        Close
-      </v-btn>
-    </v-snackbar>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
@@ -32,8 +13,8 @@
                 <v-form>
                   <v-text-field
                     v-model="email"
+                    prepend-icon="mdi-email"
                     id="email"
-                    prepend-icon="person"
                     name="email"
                     label="Email"
                     type="text"
@@ -41,7 +22,7 @@
                   ></v-text-field>
                   <v-text-field
                     v-model="password"
-                    prepend-icon="lock"
+                    prepend-icon="mdi-key-variant"
                     name="password"
                     label="Password"
                     type="password"
@@ -74,13 +55,7 @@ export default {
     return {
       email: '',
       password: '',
-      error: null,
-      snackbar: true,
-      y: 'top',
-      x: null,
-      mode: '',
-      timeout: 3000,
-      text: 'Hello, I\'m a snackbar'
+      error: null
     }
   },
   methods: {

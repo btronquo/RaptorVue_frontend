@@ -30,7 +30,7 @@
         :to="{
         name: 'login'
         }">
-        Login
+        <v-icon>mdi-login</v-icon> Login
       </v-btn>
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
@@ -39,14 +39,14 @@
         :to="{
         name: 'register'
         }">
-        Sign Up
+        <v-icon>mdi-account-plus</v-icon> Register
       </v-btn>
       <v-btn
         v-if="$store.state.isUserLoggedIn"
         flat
         dark
         @click="logout">
-        Log Out
+        <v-icon>mdi-logout</v-icon> Log Out
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>

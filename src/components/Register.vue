@@ -6,7 +6,7 @@
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="success">
-                <v-toolbar-title>Sign In</v-toolbar-title>
+                <v-toolbar-title>Register</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
@@ -18,7 +18,7 @@
                   <v-text-field
                     v-model="email"
                     id="email"
-                    prepend-icon="person"
+                    prepend-icon="mdi-email"
                     :rules="emailRules"
                     name="email"
                     label="Email"
@@ -28,7 +28,7 @@
                   ></v-text-field>
                   <v-text-field
                     v-model="password"
-                    prepend-icon="lock"
+                    prepend-icon="mdi-key-variant"
                     name="password"
                     label="Password"
                     type="password"
@@ -70,7 +70,7 @@ export default {
       },
       emailRules: [
         v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
+        v => /.+@.+/.test(v) || 'Ooops.. this is not an email!'
       ]
     }
   },

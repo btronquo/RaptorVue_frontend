@@ -6,12 +6,12 @@ import App from './App'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
-
-// css vuetify 1 icons
 import 'vuetify/dist/vuetify.min.css'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  iconfont: 'mdi'
+})
 Vue.config.productionTip = false
 
 sync(store, router)
