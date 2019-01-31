@@ -17,14 +17,6 @@
 
 <script>
 export default {
-  data: () => ({
-    icons: [
-      'mdi-watch',
-      'fab fa-twitter',
-      'fab fa-google-plus',
-      'fab fa-linkedin',
-      'fab fa-instagram'
-    ]
-  })
+
 }
 </script>

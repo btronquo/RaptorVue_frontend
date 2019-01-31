@@ -1,13 +1,11 @@
 <template>
   <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4">
-      <router-link
-        class="home"
-        tag="span"
-        :to="{
-        name: 'home'
-        }">
-        Raptor<b>VUE</b>
+      <router-link :to="{ name: 'home' }">
+        <img src="static/logo.png" width="16px" />
+      </router-link>
+      <router-link :to="{ name: 'home' }" class="text">
+         RaptorVUE
       </router-link>
     </v-toolbar-title>
     <v-toolbar-items>
@@ -67,8 +65,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .home {
   cursor: pointer;
+}
+
+.toolbar {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.text {
+  padding-left: 15px;
+  color: white;
+  text-decoration:none;
 }
 </style>

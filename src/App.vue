@@ -1,12 +1,10 @@
 <template>
   <v-app id="inspire">
-  <div id="app">
+  <div id="app-container">
     <v-content>
-      <v-container fluid>
         <page-header />
         <router-view></router-view>
         <page-footer />
-      </v-container>
     </v-content>
   </div>
   </v-app>
