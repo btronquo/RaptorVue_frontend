@@ -1,6 +1,10 @@
 # RAPTORVUE - FRONTEND
 
-> A Vue.js frontend project
+> RAPTORVUE is a tool for QA TESTING
+
+> Development board: https://trello.com/b/altCq967/raptorvuejs
+
+*Dependencies: RAPTORVUE - BACKEND*
 
 ## Build Setup
 
