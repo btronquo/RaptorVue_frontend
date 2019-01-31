@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Goodbye from '@/components/Goodbye'
 import Action from '@/components/Action'
+import Error from '../pages/core/404.vue'
 
 Vue.use(Router)
 
@@ -34,6 +36,15 @@ export default new Router({
       path: '/goodbye',
       name: 'goodbye',
       component: Goodbye
+    },
+    {
+      path: '/error',
+      name: '404',
+      component: Error
+    },
+    {
+      path: '*',
+      redirect: '/error'
     }
   ]
 })
