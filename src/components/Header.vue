@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="cyan" dark>
+  <v-toolbar app dark>
     <v-toolbar-title class="mr-4">
       <router-link :to="{ name: 'home' }">
         <img src="static/logo.png" width="16px" />

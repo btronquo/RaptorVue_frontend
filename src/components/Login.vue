@@ -1,12 +1,12 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="blue">
-                <v-toolbar-title>Log In</v-toolbar-title>
+                <v-toolbar-title>{{title}}</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
@@ -55,7 +55,8 @@ export default {
     return {
       email: '',
       password: '',
-      error: null
+      error: null,
+      title: 'Login'
     }
   },
   methods: {
