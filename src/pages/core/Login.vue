@@ -70,7 +70,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user)
         // redirect to actions
         this.$router.push({
-          name: 'action'
+          name: 'dashboard'
         })
       } catch (error) {
         this.error = error.response.data.error
