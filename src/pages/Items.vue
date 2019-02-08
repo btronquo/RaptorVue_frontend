@@ -21,11 +21,10 @@
             :search="search"
           >
             <template slot="items" slot-scope="props">
-              <td>{{ props.item.name }}</td>
               <td>{{ props.item.version }}</td>
-              <td>{{ props.item.productName }}</td>
-              <td>{{ props.item.createdAt }}</td>
-              <td>{{ props.item.state }}</td>
+              <td>{{ props.item.name }}</td>
+              <td>{{ props.item.comment }}</td>
+              <td>{{ props.item.forproduct }}</td>
             </template>
             <v-alert slot="no-results" :value="true" color="warning" icon="mdi-alert">
               Your search for "{{ search }}" found no results.
@@ -42,47 +41,35 @@ export default {
   components: {
     Panel
   },
-  name: 'Action',
+  name: 'Items',
   data () {
     return {
-      title: 'Dashboard',
+      title: 'Items',
       search: '',
       headers: [
-        {
-          text: 'Name',
-          value: 'name'
-        },
         {
           text: 'Version',
           value: 'version'
         },
         {
+          text: 'Name',
+          value: 'name'
+        },
+        {
+          text: 'Comment',
+          value: 'comment'
+        },
+        {
           text: 'Product',
-          value: 'productName'
-        },
-        {
-          text: 'Created At',
-          value: 'createdAt'
-        },
-        {
-          text: 'State',
-          value: 'state'
+          value: 'forproduct'
         }
       ],
-      compliances: [
+      items: [
         {
-          name: '18-U',
-          version: 'production',
-          productName: 'KOBBY',
-          createdAt: '18-05-1989',
-          state: '100%'
-        },
-        {
-          name: '18-U',
-          version: 'recette',
-          productName: 'KOBBY',
-          createdAt: '18-05-1989',
-          state: '100%'
+          version: '18-E',
+          name: 'User A click on dashboard, he can see the dashboard properly working',
+          comment: 'this is a comment',
+          forproduct: 'kureha'
         }
       ]
     }

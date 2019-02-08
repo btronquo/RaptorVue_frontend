@@ -53,13 +53,13 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       drawer: false,
       links: [
-        { icon: 'mdi-home', text: 'Dashboard', route: '/dashboard'},
-        { icon: 'mdi-folder', text: 'Dashboard', route: '/dashboard'},
-        { icon: 'mdi-account-details', text: 'Dashboard', route: '/dashboard'}
+        {icon: 'mdi-home', text: 'Dashboard', route: '/dashboard'},
+        {icon: 'mdi-folder', text: 'Dashboard', route: '/dashboard'},
+        {icon: 'mdi-account-details', text: 'Dashboard', route: '/dashboard'}
       ]
     }
   },
