@@ -58,8 +58,8 @@ export default {
       drawer: false,
       links: [
         {icon: 'mdi-home', text: 'Dashboard', route: '/dashboard'},
-        {icon: 'mdi-folder', text: 'Dashboard', route: '/dashboard'},
-        {icon: 'mdi-account-details', text: 'Dashboard', route: '/dashboard'}
+        {icon: 'mdi-folder', text: 'Items', route: '/items'},
+        {icon: 'mdi-account-details', text: 'Home', route: '/home'}
       ]
     }
   },

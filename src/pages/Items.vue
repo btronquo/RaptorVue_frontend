@@ -2,40 +2,78 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">{{ title }}</h1>
     <v-container class="my-5">
-        <v-card flat class="pa-3">
-          <v-card-title>
-            Compliances list
-            <v-spacer></v-spacer>
+      <v-card flat class="pa-3" color="blue-grey lighten-5">
+        <v-card-title>
+          Add item
+        </v-card-title>
+        <v-card-text>
+          <v-form
+            ref="form"
+            lazy-validation
+          >
             <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
+              label="Version"
+              v-model="item.version"
+              required
+            ></v-text-field>
+
+            <v-text-field
+              label="Name and description of item"
+              v-model="item.name"
+              required
+            ></v-text-field>
+
+            <v-btn
+              color="success"
+              @click="create"
             >
-            </v-text-field>
-          </v-card-title>
+              Create
+            </v-btn>
+
+            <v-btn
+              color="error"
+              @click="reset"
+            >
+              Reset Form
+            </v-btn>
+          </v-form>
+        </v-card-text>
+      </v-card>
+      <v-card flat class="pa-3">
+        <v-card-title>
+          Compliances list
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+          >
+          </v-text-field>
+        </v-card-title>
           <v-data-table
             :headers="headers"
-            :items="compliances"
+            :items="items"
             :search="search"
           >
-            <template slot="items" slot-scope="props">
-              <td>{{ props.item.version }}</td>
-              <td>{{ props.item.name }}</td>
-              <td>{{ props.item.comment }}</td>
-              <td>{{ props.item.forproduct }}</td>
+            <template slot="items" slot-scope="props" >
+              <td> {{ props.item.version }}</td>
+              <td> {{ props.item.forproduct }}</td>
+              <td> {{ props.item.name }}</td>
+              <td> {{ props.item.comment }}</td>
             </template>
             <v-alert slot="no-results" :value="true" color="warning" icon="mdi-alert">
               Your search for "{{ search }}" found no results.
             </v-alert>
           </v-data-table>
-          </v-card>
+        </v-card>
     </v-container>
   </div>
 </template>
 
 <script>
+import ItemsService from '@/services/ItemsService'
 import Panel from '@/components/Panel'
 export default {
   components: {
@@ -44,12 +82,23 @@ export default {
   name: 'Items',
   data () {
     return {
+      id: 1,
       title: 'Items',
       search: '',
+      valid: true,
+      items: [],
+      item: {
+        version: null,
+        name: null
+      },
       headers: [
         {
           text: 'Version',
           value: 'version'
+        },
+        {
+          text: 'Product',
+          value: 'forproduct'
         },
         {
           text: 'Name',
@@ -58,21 +107,29 @@ export default {
         {
           text: 'Comment',
           value: 'comment'
-        },
-        {
-          text: 'Product',
-          value: 'forproduct'
-        }
-      ],
-      items: [
-        {
-          version: '18-E',
-          name: 'User A click on dashboard, he can see the dashboard properly working',
-          comment: 'this is a comment',
-          forproduct: 'kureha'
         }
       ]
     }
+  },
+  methods: {
+    validate () {
+      if (this.$refs.form.validate()) {
+      }
+    },
+    reset () {
+      this.$refs.form.reset()
+    },
+    async create () {
+      try {
+        await ItemsService.post(this.item)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
+  async mounted () {
+    // request to the backend to get item
+    this.items = (await ItemsService.index()).data
   }
 }
 </script>
