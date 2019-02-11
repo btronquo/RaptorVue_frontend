@@ -25,7 +25,7 @@
 
             <v-btn
               color="success"
-              @click="create"
+              @click="add"
             >
               Create
             </v-btn>
@@ -112,19 +112,12 @@ export default {
     }
   },
   methods: {
-    validate () {
-      if (this.$refs.form.validate()) {
-      }
-    },
-    reset () {
-      this.$refs.form.reset()
-    },
-    async create () {
-      try {
-        await ItemsService.post(this.item)
-      } catch (err) {
-        console.log(err)
-      }
+    async add () {
+      await ItemsService.post(this.item).then(() => {
+        this.items.push(this.item)
+        this.item = {}
+      })
+
     }
   },
   async mounted () {
