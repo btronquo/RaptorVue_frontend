@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
-import Goodbye from '@/components/Goodbye'
-import Action from '@/components/Action'
+import Home from '@/pages/Home'
+import Login from '@/pages/core/Login'
+import Register from '@/pages/core/Register'
+import Goodbye from '@/pages/Goodbye'
+import Items from '@/pages/Items'
+import Dashboard from '@/pages/Dashboard'
 import Error from '../pages/core/404.vue'
 
 Vue.use(Router)
@@ -28,9 +29,14 @@ export default new Router({
       component: Register
     },
     {
-      path: '/action',
-      name: 'action',
-      component: Action
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/items',
+      name: 'items',
+      component: Items
     },
     {
       path: '/goodbye',
